@@ -1,0 +1,94 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap" rel="stylesheet">
+
+<style>
+	body {
+		background-color: #000;
+		color: #fff;
+		/* font-family: 'Righteous', sans-serif; */
+	}
+
+	.container-box {
+		background-color: #fff;
+		padding: 40px;
+		border-radius: 20px;
+		margin-top: 50px;
+		box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+	}
+
+	.table-container {
+		max-height: 500px;
+		overflow-y: auto;
+		border-radius: 10px;
+		border: 2px solid #ddd;
+	}
+
+	table {
+		width: 100%;
+		text-align: center;
+		border-collapse: collapse;
+	}
+
+	thead {
+		background-color: #ffcc00;
+		color: #000;
+	}
+
+	th,
+	td {
+		padding: 15px;
+		border: 1px solid #ccc;
+		font-size: 16px;
+	}
+
+	tbody tr:nth-child(even) {
+		background-color: #f9f9f9;
+	}
+
+	tbody tr:hover {
+		background-color: #ffe680;
+	}
+
+	.title-header {
+		font-size: 28px;
+		color: #fff;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+</style>
+
+<div class="container">
+	<div class="title-header">
+		View Cyberbullying Prediction Details
+	</div>
+
+	<div class="container-box">
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th>Tweet Message</th>
+						<th>Cyberbullying Prediction Type</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for object in list_objects %}
+					<tr>
+						<td style="color: #000000; font-weight: 500;">{{ object.Tweet_Message }}</td>
+						{% if object.Prediction_Type == 'Offensive or Cyberbullying' %}
+						<td style="color: #cc0000; font-weight: bold;">{{ object.Prediction_Type }}</td>
+						{% else %}
+						<td style="color: #006600; font-weight: bold;">{{ object.Prediction_Type }}</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

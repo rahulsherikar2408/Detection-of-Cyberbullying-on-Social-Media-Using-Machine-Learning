@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" href="{% static 'images/icon.png' %}" type="image/x-icon">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One" rel="stylesheet">
+
+	<style>
+		body {
+			background: linear-gradient(to right, #6a11cb, #2575fc);
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container {
+			background: white;
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			width: 400px;
+		}
+
+		.container h2 {
+			font-family: 'Fredoka One', cursive;
+			color: #6a11cb;
+		}
+
+		.form-group input {
+			width: 100%;
+			padding: 10px;
+			margin: 10px 0;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+		}
+
+		.btn-primary {
+			width: 100%;
+			background-color: #6a11cb;
+			border: none;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			color: white;
+			cursor: pointer;
+		}
+
+		.btn-primary:hover {
+			background-color: #2575fc;
+		}
+
+		.switch-login {
+			text-align: center;
+			margin-top: 15px;
+		}
+
+		.switch-login a {
+			color: #6a11cb;
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h2>Admin Login</h2>
+		<hr>
+
+		<form method="POST" role="form">
+			{% csrf_token %}
+
+			<div class="form-group">
+				<input type="text" name="username" class="form-control" placeholder="User Name" required>
+			</div>
+
+			<div class="form-group">
+				<input type="password" name="password" class="form-control" placeholder="Password" required>
+			</div>
+
+			<button type="submit" name="submit1" class="btn btn-primary">Login</button>
+		</form>
+
+		<div class="switch-login">
+			<p>Not a Service Provider? <a href="{% url 'login' %}">User Login</a></p>
+		</div>
+	</div>
+
+</body>
+
+</html>

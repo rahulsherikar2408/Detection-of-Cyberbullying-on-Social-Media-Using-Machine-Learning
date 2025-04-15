@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Remote User</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Russo+One|Poppins" rel="stylesheet">
+
+  <style>
+    /* Smooth gradient background */
+    body {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Stylish title */
+    h1 {
+      color: rgb(26, 14, 14);
+      text-transform: uppercase;
+      font-family: 'Russo One', sans-serif;
+      margin-top: 30px;
+      text-shadow: 2px 2px 10px rgb(255, 255, 255);
+    }
+
+    /* Navbar Styling */
+    .topnav {
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 60%;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .topnav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    /* Hover effect */
+    .topnav a:hover {
+      background-color: #6a11cb;
+      border-radius: 5px;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .topnav a.active {
+      background: #8e44ad;
+      border-radius: 5px;
+      color: white;
+    }
+
+    /* Main content area */
+    .mainholder {
+      margin: 30px auto;
+      padding: 30px;
+      width: 80%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Detection of Cyberbullying on Social Media</h1>
+
+  <div class="topnav">
+    <a href="{% url 'Search_DataSets' %}">PREDICT CYBERBULLYING</a>
+    <a href="{% url 'ViewYourProfile' %}">VIEW YOUR PROFILE</a>
+    <a href="{% url 'login' %}">LOGOUT</a>
+  </div>
+
+  <div class="mainholder">
+    {% block userblock %}
+    {% endblock %}
+  </div>
+
+</body>
+
+</html>

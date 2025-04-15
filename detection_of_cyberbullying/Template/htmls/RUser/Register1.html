@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Register Your Details</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			background-color: #f4f4f4;
+			/* Light gray background */
+		}
+
+		.container {
+			max-width: 500px;
+			background: rgba(255, 255, 255, 0.9);
+			padding: 30px;
+			border-radius: 10px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			margin-top: 50px;
+		}
+
+		h2 {
+			text-align: center;
+			font-weight: 600;
+		}
+
+		.form-group input {
+			border-radius: 5px;
+		}
+
+		.btn-primary {
+			width: 100%;
+			padding: 10px;
+			font-size: 18px;
+			border-radius: 5px;
+		}
+
+		.btn-secondary {
+			width: 100%;
+			margin-top: 10px;
+			background-color: #6c757d;
+		}
+
+		.text-muted {
+			text-align: center;
+			display: block;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Register Your Details</h2>
+		<p class="text-muted">Cyberbullying Detection using Machine Learning</p>
+		<hr>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-group mb-3">
+				<input type="text" class="form-control" name="username" placeholder="User Name" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="email" class="form-control" name="email" placeholder="Email Address" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="password" class="form-control" name="password" placeholder="Password" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="number" class="form-control" name="phoneno" placeholder="Mobile Number" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="text" class="form-control" name="country" placeholder="Country" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="text" class="form-control" name="state" placeholder="State" required>
+			</div>
+			<div class="form-group mb-3">
+				<input type="text" class="form-control" name="city" placeholder="City" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Sign Up</button>
+			<a href="{% url 'login' %}" class="btn btn-secondary">User Login</a>
+		</form>
+	</div>
+</body>
+
+</html>

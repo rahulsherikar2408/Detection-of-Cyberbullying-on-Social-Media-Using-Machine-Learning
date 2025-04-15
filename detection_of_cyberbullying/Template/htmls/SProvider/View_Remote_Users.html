@@ -1,0 +1,89 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Righteous|Russo+One&display=swap" rel="stylesheet">
+
+<style>
+	body {
+		background-color: #ffffff;
+	}
+
+	.container-fluid {
+		padding: 50px;
+	}
+
+	.container {
+		background-color: #fff;
+		padding: 40px;
+		border-radius: 12px;
+		box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+	}
+
+	h2 {
+		color: #000000;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: center;
+	}
+
+	th {
+		background-color: #ffcc00;
+		color: #000000;
+		border: 1px solid #000000;
+		padding: 12px;
+		font-size: 16px;
+		letter-spacing: 1px;
+	}
+
+	td {
+		color: #000000;
+		border: 1px solid #000000;
+		padding: 10px;
+		font-size: 15px;
+	}
+
+	.table-container {
+		overflow-x: auto;
+	}
+</style>
+
+<div class="container-fluid">
+	<div class="container">
+		<h2>View All Remote Users</h2>
+
+		<div class="table-container">
+			<table>
+				<thead>
+					<tr>
+						<th>User Name</th>
+						<th>Email</th>
+						<th>Mobile No</th>
+						<th>Country</th>
+						<th>State</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for o in objects %}
+					<tr>
+						<td>{{ o.username }}</td>
+						<td>{{ o.email }}</td>
+						<td>{{ o.phoneno }}</td>
+						<td>{{ o.country }}</td>
+						<td>{{ o.state }}</td>
+						<td>{{ o.city }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

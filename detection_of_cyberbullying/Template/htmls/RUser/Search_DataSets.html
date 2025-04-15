@@ -1,0 +1,100 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Righteous|Russo+One&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background-color: #000000;
+  }
+
+  .container-fluid {
+    padding: 50px;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    text-align: center;
+  }
+
+  h2 {
+    color: #FF0000;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    border: 2px solid #FF0000;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+  }
+
+  .btn-predict {
+    background-color: #FF0000;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .btn-predict:hover {
+    background-color: #cc0000;
+  }
+
+  .result-box {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: inline-block;
+  }
+
+  .result-box span {
+    color: #FF0000;
+    font-weight: bold;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="container">
+    <h2>Finding Cyberbullying Type</h2>
+
+    <!-- Tweet Input Form -->
+    <form role="form" method="POST">
+      {% csrf_token %}
+      <div class="input-container">
+        <label for="tweet" style="color: #FF0000; font-weight: bold;">Enter Your Tweet Message:</label>
+        <textarea name="keyword" id="tweet" placeholder="Type your tweet here..."></textarea>
+        <button type="submit" class="btn-predict">Predict</button>
+      </div>
+    </form>
+
+    <!-- Prediction Result -->
+    {% if objs %}
+    <div class="result-box">
+      <p>Cyberbullying Prediction Type: <span>{{ objs }}</span></p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
